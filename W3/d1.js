@@ -23,7 +23,7 @@ function boundary(number) {
         return true
     else {
         return false
-        }
+    }
 }
 console.log(boundary(10))
 console.log(boundary(400))
@@ -34,10 +34,10 @@ console.log(boundary(30))
  Scrivi una funzione chiamata "reverseString", che accetta una stringa come parametro e la ritorna invertita (es.: EPICODE => EDOCIPE).
 */
 function reverseString(string) {
-  return string.split("") .reverse("") .join("")
+    return string.split("").reverse("").join("")
 }
 
-const text= reverseString("epicod");
+const text = reverseString("epicod");
 console.log(text)
 
 
@@ -54,8 +54,8 @@ console.log(text4)*/
  Scrivi una funzione chiamata "giveMeRandom", che accetta come parametro un numero chiamato n e ritorna un array contenente n numeri random contenuti tra 0 e 10.
 */
 
-function giveMeRandom(){
-    return Math.floor(Math.random() *10);
+function giveMeRandom() {
+    return Math.floor(Math.random() * 10);
 }
 console.log(giveMeRandom(30))
 
@@ -64,21 +64,44 @@ console.log(giveMeRandom(30))
  Scrivi una funzione chiamata "area" che riceve due parametri (l1, l2) e calcola l'area del rettangolo associato.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function rectangleArea(l1, l2) {
+    return l1 * l2
+}
+console.log(rectangleArea(16, 24))
+console.log(rectangleArea(34, 44))
+console.log(rectangleArea(267, 90))
 
 /* ESERCIZIO 2
  Scrivi una funzione chiamata "crazyDiff" che calcola la differenza assoluta tra un numero fornito e 19.
  Se il valore calcolato è più grande di 19, la funzione deve tornare tale risultato moltiplicato per 3.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function crazyDiff(number0) {
+    if (number0 - 19 > 19) {
+        return (number0- 19) * 3
+    }else if (number0-19< 19){
+        return number0-19
+    }
+}
+console.log(crazyDiff(20))
+console.log(crazyDiff(50))
 
 /* ESERCIZIO 3
  Scrivi una funzione chiamata "codify" che accetta una stringa come parametro.
  La funzione deve aggiungere la parola "code" all'inizio della stringa fornita e ritornare il risultato, ma se la stringa fornita comincia proprio con "code" allora deve ritornarla senza modifiche.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function codify(stringa){
+  if (stringa.startsWith("code")){
+    return stringa
+  }else{
+    return "code ".concat(stringa)
+  }
+
+}
+console.log(codify("code ciao"))
+console.log(codify("ciao"))
+
 
 /* ESERCIZIO 4
  Scrivi una funzione chiamata "check3and7" la quale accetta un numero intero positivo come parametro.
