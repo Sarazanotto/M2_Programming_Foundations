@@ -109,10 +109,25 @@ console.log(codify("ciao"))
  SUGGERIMENTO: operatore modulo
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function check3and7 (number){
+    if (number % 3 === 0 || number%7 ===0){
+        return true
+    } else{
+        return false
+    }
+}
+
+console.log(check3and7(9))
+console.log(check3and7(35))
+console.log(check3and7(4))
 
 /* ESERCIZIO 5
  Scrivi una funzione chiamata "cutString", che accetta una stringa come parametro e la ritorna senza il primo e l'ultimo carattere.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function cutString(string){
+    const newCutString= string.slice(1, -1)
+   return newCutString
+}
+console.log(cutString("ciao"))
+console.log(cutString("Buona sera a tutti"))
