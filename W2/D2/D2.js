@@ -38,7 +38,7 @@ const prices = [34, 5, 2]
 let totalPrices = 0;
 
 for (let p = 0; p < prices.length; p++) {
-totalPrices += prices[p];
+    totalPrices += prices[p];
 }
 console.log(totalPrices)
 
@@ -67,9 +67,13 @@ console.log(totalPriceBlackFriday)
 
 for (let j = 0; j < users.length; j++) {
     const us = users[j];
-    if (users[j].isAmbassador)  {
+    if (users[j].isAmbassador && totalPrices < 100) {
         console.log(`${us.name} ${us.lastName}paga ${totalPriceBlackFriday + shippingCost}`)
-    } else if (users.isAmbassador !== true) {
+    } else if (users[j].isAmbassador && totalPrices > 100) {
+        console.log(`${us.name} ${us.lastName}paga ${totalPriceBlackFriday }`)
+    }else if (users.isAmbassador !== true && totalPrices < 100) {
+        console.log(`${us.name} ${us.lastName}paga ${totalPrices + shippingCost + shippingCost}`)
+    } else if (users.isAmbassador !== true && totalPrices >100) {
         console.log(`${us.name} ${us.lastName}paga ${totalPrices + shippingCost + shippingCost}`)
     }
 }
