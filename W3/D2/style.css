@@ -1,33 +1,101 @@
 * {
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 
-#title {
-    color: rgb(250, 96, 222);
-    padding: 3rem;
-    text-align: center;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(./assets/Bg2.png);
+    margin: 1rem 0;
 }
 
-body{
-    background-color: rgb(255, 209, 252);
-    padding: 0 3rem;
+.change-body{
+    background-image: url(./assets/Bg3.png);
 }
 
-.another-body{
-background-color: rgb(97, 231, 255);
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 80pt;
+    color: palevioletred;
+    
 }
-
-.products{
+.top-title{
     display: flex;
-    flex-direction: column;
     gap: 2rem;
+    align-items:baseline;
+    padding: 3rem;
 }
 
-.products li{
+.products {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    padding: 2rem 3rem;
+}
+.image-product{
+    width: 200px;
+}
+.image-product-change {
+   filter:invert(100%);
+}
+
+
+.toggleBtn, 
+.top-title button{
+    padding: 0.5rem 1rem;
+    color: aliceblue;
+    background-color: peachpuff;
+    border-radius: 15px;
+    font-size: 8pt;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(216, 112, 147, 0.452);
+}
+
+.products li {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 200px;
+    gap: 10px;
+    background-color: rgb(252, 224, 198);
+    border-radius: 10pt;
+}
+
+.content {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.content h2 {
+    color: palevioletred;
+}
+
+.description {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.content button {
+    padding: 1rem;
+    background-color: peachpuff;
+    border-radius: 15px;
+    margin-top: 1rem;
+    border: none;
+}
+
+footer {
+    padding: 5rem 3rem;
+    background-color: bisque;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
 }

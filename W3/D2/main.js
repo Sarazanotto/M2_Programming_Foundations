@@ -21,11 +21,90 @@
 // ESERCIZIO 11: Scrivi una funzione per aggiungere/togliere una classe CSS a tutte le immagini della tabella; questa classe deve modificare la visibilità/invisibilità dell'immagine
 // ESERCIZIO 12: Scrivi una funzione per cambiare il colore del prezzo di ogni prodotto in uno differente, ogni volta che viene invocata
 
-const titlePage = document.getElementById("title")
+const title = document.getElementById("title")
+const buttonTitle = document.getElementById("changeTitle")
+const body = document.body
+const footerAddress = document.querySelector("footer p")
+const cardsButtons = document.querySelectorAll(".content button")
+const toggleBtn = document.querySelectorAll(".toggleBtn")
+const toggleImages = document.querySelectorAll(".image-product")
+const pricesColor = document.querySelectorAll(".content p:last-of-type")
+
+console.log(pricesColor)
 
 function changeTitle() {
-    titlePage.innerText("trasforma la tua creatività in dolcezza!")
+    title.innerText = "Trasforma la tua creatività in dolcezza!"
+    title.style.fontSize = "30pt"
+}
+
+function bodyBg() {
+    body.classList.add("change-body")
+}
+
+function changeAddress() {
+    footerAddress.innerText = "Via Leopoldo, 4 Milano"
+}
+
+function restorAddress() {
+    footerAddress.innerText = "Via Ciaociao, 37 Milano"
 }
 
 
-console.log(changeTitle)
+/*function allToggle(){
+    toggleImages.classList.toggle("image-product-change")
+}
+
+toggleBtn.addEventListener("click", allToggle)*/
+
+
+/*function allToggle(){
+    toggleImages.forEach(image =>{
+        image.classList.toggle("image-product-change")
+    })
+}
+
+toggleBtn.forEach(button=>{
+    button.addEventListener("click", allToggle)
+})*/
+
+toggleBtn.forEach(button => {
+    button.addEventListener("click", () => {
+        const toggleSingleImage = button.nextElementSibling;
+        toggleSingleImage.classList.toggle("image-product-change")
+    })
+})
+
+
+function changeColorPrice() {
+    pricesColor.forEach(price =>{
+       price.style.color="red";
+    })
+}
+
+pricesColor.forEach(price=> {
+    price.addEventListener("mouseenter", changeColorPrice)
+})
+
+console.log(changeColorPrice)
+console.log(pricesColor)
+
+cardsButtons.forEach(button => {
+    button.classList.add("newClass")
+})
+
+buttonTitle.addEventListener("click", () => {
+    changeTitle()
+})
+
+body.addEventListener("click", () => {
+    bodyBg()
+})
+
+footerAddress.addEventListener("mouseenter", () => {
+    changeAddress()
+})
+
+footerAddress.addEventListener("mouseleave", () => {
+    restorAddress()
+})
+
