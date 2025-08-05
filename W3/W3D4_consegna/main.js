@@ -75,14 +75,16 @@ toggleBtn.forEach(button => {
 })
 
 
-function changeColorPrice() {
-    pricesColor.forEach(price => {
-        price.style.color = "red";
-    })
+function changeColorPrice(element) {
+    element.style.color = "red";
+
 }
 
 pricesColor.forEach(price => {
-    price.addEventListener("mouseenter", changeColorPrice)
+    price.addEventListener("mouseenter", (event) => {
+        changeColorPrice(event.target)
+        console.log(event.target)
+    })
 })
 
 console.log(changeColorPrice)

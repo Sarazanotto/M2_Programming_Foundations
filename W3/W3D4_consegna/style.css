@@ -13,7 +13,9 @@ body {
 .change-body{
     background-image: url(./assets/Background2.png);
 }
-
+.top-title{
+    height: 200px;
+}
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
