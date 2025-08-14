@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+}
+
+.calculator {
+    margin: 50px auto;
+    width: 300px;
+    height: 450px;
+    background-color: rgb(52, 48, 48);
+    border: 1px solid rgb(52, 48, 48);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+
+    box-shadow: 5px 2px 6px 2px rgb(88, 85, 85) inset,
+        8px 8px 8px 5px rgb(0, 0, 0);
+}
+
+.display {
+    width: 260px;
+    height: 70px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: rgb(85, 93, 46);
+    color: rgb(27, 26, 26);
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 45px;
+    border: 2px solid rgb(41, 45, 22);
+    box-shadow: 0px 0px 8px 2px rgb(41, 45, 22) inset;
+}
+
+.number-container {
+    width: 260px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+}
+
+.plus{
+  grid-row-end: span 2; 
+}
+
+button {
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgb(18, 17, 17);
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 2px 2px 5px rgb(18, 17, 17),
+    0 0 3px rgb(18, 17, 17)inset
+}
+
+.a-c{
+    background-color: red;
+}
+

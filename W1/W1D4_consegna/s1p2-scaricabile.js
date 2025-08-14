@@ -64,4 +64,9 @@ const lessX= (4-x)
  NON HAI BISOGNO DI UN BLOCCO IF/ELSE. E' sufficiente utilizzare console.log().
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const name1= "jhon"
+const name2= "Jhon"
+
+
+ console.log (name1=== name2)
+ console.log(name1===name2.toLowerCase())
