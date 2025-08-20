@@ -193,41 +193,70 @@ const cars = [
 
 // crea una card per ogni elemento dell'array e mostra le auto nel div "<div class="cars-container"></div>"
 // implementa una ricerca per cercare l'auto tramite nome
-const carsContainer= document.querySelector(".cars-container")
-function cardCreate(cardData){
+const carsContainer = document.querySelector(".cars-container")
+const searchContainer = document.querySelector(".search-container")
+const btn = document.querySelector("button")
+const search = []
 
-const card= document.createElement("div")
-card.setAttribute("class", "card")
+console.log(searchContainer)
+function createCard(cardValue) {
 
-const cardImage= document.createElement("img")
-cardImage.src=cardData.img
+    const card = document.createElement("div")
+    card.setAttribute("class", "card")
 
-const cardContent= document.createElement("div")
-cardContent.setAttribute("class", "card-content")
+    const cardImage = document.createElement("img")
+    cardImage.src = cardValue.img
 
-const carName= document.createElement("p")
-carName.setAttribute("class", "propriety")
-carName.innerText=cardData.name
+    const cardContent = document.createElement("div")
+    cardContent.setAttribute("class", "card-content")
 
-const carModel= document.createElement("p")
-carModel.setAttribute("class", "propriety")
-carModel.innerText=cardData.model
+    const carName = document.createElement("p")
+    carName.setAttribute("class", "description")
+    carName.innerText = cardValue.name
 
-const carYear= document.createElement("p")
-carYear.setAttribute("class", "propriety")
-carYear.innerText=cardData.year
+    const carModel = document.createElement("p")
+    carModel.setAttribute("class", "description")
+    carModel.innerText = cardValue.model
 
-const carColor= document.createElement("p")
-carColor.setAttribute("class", "propriety")
-carColor.innerText=cardData.color
+    const carYear = document.createElement("p")
+    carYear.setAttribute("class", "description")
+    carYear.innerText = cardValue.year
 
-const carAvaible= document.createElement("p")
-carAvaible.setAttribute("class", "propriety")
-carAvaible.innerText=cardData.avaible
+    const carColor = document.createElement("p")
+    carColor.setAttribute("class", "description")
+    carColor.innerText = cardValue.color
 
-const carPrice= document.createElement("p")
-carPrice.setAttribute("class", "propriety")
-carPrice.innerText=cardData.price
+    const carIsAvailable = document.createElement("p")
+    carIsAvailable.setAttribute("class", "description")
+    carIsAvailable.innerText = cardValue.isAvailable
 
-Content.append(carName, carModel, carYear, carColor, carAvaible, carPrice)
+    const carPrice = document.createElement("p")
+    carPrice.setAttribute("class", "description")
+    carPrice.innerText = cardValue.price
+
+    cardContent.append(carName, carModel, carYear, carColor, carIsAvailable, carPrice)
+    card.append(cardImage, cardContent)
+    carsContainer.appendChild(card)
 }
+
+cars.forEach(car => {
+    createCard(car)
+})
+
+function searchForName() {
+    const inputValue = searchContainer.value
+
+    for (let i = 0; i < cars.length; i++) {
+        const carName = cars[i].name.toLowerCase()
+
+        if (carName.includes(inputValue)) {
+            search.push(cars[i])
+            console.log(cars[i])
+        }
+    }
+    console.log(search)
+}
+
+btn.addEventListener("click", ()=>{
+    searchForName()
+})

@@ -32,16 +32,21 @@ function squaredNumber(number) {
 console.log(squaredNumber(4))
 
 /*5. Crea una funzione che restituisce la lunghezza di una stringa passata come argomento.*/
-/*function lunghezza(frase){
-return frase.length
+
+function stringLength(string) {
+    const result = string.length;
+    return result
 }
-const myString = "la lunghezza di questa stringa è "
-console.log(lunghezzaFrase)*/
+console.log(stringLength("Ciao come stai???"))
+console.log(stringLength("Ciao"))
 
 /*6. Crea una funzione che prende il nome di una persona e restituisce una stringa "Ciao, NOME!".
 */
+function hello(name) {
+    return `Ciao ${name}!`
+}
 
-
+console.log(hello("Sara"))
 
 
 // =============================
@@ -92,43 +97,53 @@ console.log(replacement("Ciao sono Sara"))
 // ===========================
 // 3. METODI DEGLI ARRAY (NO ES6+)
 // ===========================
-
+const arrayTest = [1, 2, 3, 4, 5, 6, 6, 6]
 /*
 13. Crea una funzione che prende un array di numeri e stampa ogni elemento usando un ciclo for.*/
-/*for (let i = 0; i <= 10; i++)
-    console.log(i)*/
 
-
-function numbers(array) {
-    for (let i = 0; i <= array.length; i++);
+/*function numbers(array) {
+for (let i = 0; i < array.length; i++){
+     return array[i])
 }
-console.log()
+}
+console.log(numbers(arrayTest))*/
+//non capisco
 
 
 /*14. Crea una funzione che somma tutti gli elementi di un array.*/
 
-function elementArray() {
-
+function sumElementArray(array) {
+    let sum = 0
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i]
+    }
+    return sum
 }
+
+console.log(sumElementArray(arrayTest))
+
 
 /*15. Crea una funzione che trova il numero più grande in un array.*/
-
-/*function maxElement(a, b, c, d) {
-    return Math.max(a, b, c, d)
-}
-const maxnumber = maxElement(1, 2, 3, 4)
-console.log(maxnumber)*/
-//NON HO CAPITO SE PER FORZA DEVO METTERE DEI VALORI TRA LE PARENTESI DELLA FUNZIONE!!!!
 
 function maxElement(array) {
     return Math.max(...array)
 }
-const testArray = [1, 2, 3, 4, 5, 6, 7, 8]
-const resultMaxElement = maxElement(testArray)
+
+const resultMaxElement = maxElement(arrayTest)
 console.log(resultMaxElement)
 
 /*16. Crea una funzione che conta quante volte un valore appare in un array.*/
+function numberValue(array, value) {
+    let result = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            result++;
+        }
+    }
+    return result
+}
 
+console.log(numberValue(arrayTest, 6))
 
 /*17. Crea una funzione che prende un array di nomi e stampa solo quelli con più di 5 lettere.*/
 function onlyFive(array) {
@@ -143,15 +158,25 @@ onlyFive(arrayExemple)
 
 /*18. Crea una funzione che restituisce un nuovo array con solo i numeri pari da un array di numeri.*/
 
+function evenNumbers(array) {
+    const result = []
+    for (let i = 0; i < array.length; i++)
+        if (array[i] % 2 === 0) {
+            result.push(array[i])
+        }
+    return result
+}
 
+
+console.log(evenNumbers(arrayTest))
 
 
 /*19. Crea una funzione che inverte l’ordine degli elementi in un array.*/
 function reverseArray(array) {
     return array.reverse()
 }
-const numbersArray = [1, 2, 3, 4, 5]
-console.log(reverseArray(numbersArray))
+
+console.log(reverseArray(arrayTest))
 
 
 // ====================
@@ -214,27 +239,28 @@ function major(a, b) {
         return a
     }
 }
-console.log(major(5,7))
+console.log(major(5, 7))
 
 /*24. Scrivi una funzione che prende tre numeri e restituisce il minore.*/
-function anotherMajor(a,b,c){
-    if (a<b && a<c){
+function anotherMajor(a, b, c) {
+    if (a < b && a < c) {
         return a
-    } else if (b<a &&b<c){
+    } else if (b < a && b < c) {
         return b
     } else {
         return c
     }
 }
-console.log(anotherMajor(1,2,3))
-console.log(anotherMajor(3,2,1))
-console.log(anotherMajor(2,1,3))
+console.log(anotherMajor(1, 2, 3))
+console.log(anotherMajor(3, 2, 1))
+console.log(anotherMajor(2, 1, 3))
+
 /*25. Scrivi una funzione che controlla se una stringa è vuota oppure no.
 */
-function anotherString(string){
-    if (string === ""){
+function anotherString(string) {
+    if (string === "") {
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -253,36 +279,152 @@ function changeTitle() {
 }
 //27. Scrivi una funzione che aggiunge un paragrafo con del testo dentro a un div con id "container".
 
-function addP(){
-    const container=document.getElementById("container")
-    const p=document.createElement("p")
-    p.textContent= testo
-container.appendChild(p)    
+function addP() {
+    const container = document.getElementById("container")
+    const p = document.createElement("p")
+    p.textContent = testo
+    container.appendChild(p)
 }
 
 //28. Scrivi una funzione che cambia il colore di sfondo della pagina in blu.
-function newBg(){
-    document.body.style.backgroundColor="blue"
+function newBg() {
+    document.body.style.backgroundColor = "blue"
 }
 
 //29. Scrivi una funzione che nasconde un elemento con id "box".
+function hiddenElemnt() {
+    const box = document.getElementById("box")
+    box.style.display = "none"
+}
+
 //30. Scrivi una funzione che crea un nuovo elemento <li> con del testo e lo aggiunge a una lista con id "list".
-//
+function newElement() {
+    const list = getElementById("list")
+    const li = document.createElement("li")
+    li.innerText = "ciao sono Sara"
+    list.appendChild(li)
+    console.log(list)
+}
+
 //31. Crea una funzione che, al click di un pulsante con id "showMessage", mostri un alert con il messaggio "Clicked!".
+function callAlert() {
+    alert("Clicked")
+}
+const showMessage = document.getElementById("showMessage")
+showMessage.addEventListener("click", alert)
+
 //32. Aggiungi un event listener a un input di testo con id "nameInput" che logga in console il valore digitato ogni volta che l'utente scrive qualcosa.
+
+const nameInput = document.getElementById("nameInput")
+nameInput.addEventListener("input", (event) => {
+    console.log(event.target.value)
+}
+)
+
 //33. Crea una funzione che intercetta l'invio di un form con id "myForm" e impedisce l'invio (preventDefault), mostrando un alert con "Form submitted!".
+
+
 //34. Crea una funzione che, al click su un bottone con id "changeColor", cambi il colore del testo di un paragrafo con id "paragraph" in rosso.
+
+function changeColorParagraph() {
+    const paragraph = document.getElementById("paragraph")
+    paragraph.style.color = "red"
+}
+
+const changeColor = document.getElementById("changeColor")
+changeColor.addEventListener("click", changeColorParagraph)
+
 //35. Crea una funzione che legge il valore di un input di tipo checkbox con id "agree" e mostra un alert con "You agreed!" solo se è selezionato.
-//
+const agree = document.getElementById("agree")
+function showAlert() {
+    if (agree.checked) {
+        alert("you agree")
+    }
+}
+agree.addEventListener("change", showAlert)
+
 //36. Al focus su un input con id "email", cambia il colore del bordo in blu. Al blur, riportalo al colore originale.
+const inputEmail = document.getElementById("email")
+
+inputEmail.addEventListener("focus", () => {
+    inputEmail.style.borderColor = "red"
+}
+)
+inputEmail.addEventListener("blur", () => {
+    inputEmail.style.borderColor
+})
+
 //37. Crea una funzione che, quando si seleziona un’opzione da un <select> con id "language", mostra il valore selezionato in un elemento con id "output".
+const language = document.getElementById("language")
+const output = document.getElementById("output")
+language.addEventListener("change", () => {
+    const value = language.value;
+    output.textContent = value
+})
+
 //38. Crea una funzione che, al click su un bottone con id "addItem", aggiunge un nuovo <li> con testo "New item" a una lista con id "myList".
+const addItemBtn = document.getElementById("addItem")
+const myList = document.getElementById("myList")
+
+function addNewItem() {
+    const li = document.createElement("li")
+    li.textContent = "New item"
+    myList.appendChild(li)
+
+}
+addItemBtn.addEventListener("click", addNewItem)
+
 //39. Crea una funzione che, al click su un bottone con id "resetForm", resetta tutti i campi di un form con id "userForm".
+const userForm = document.getElementById("userForm")
+const resetForm = document.getElementById("resetForm")
+
+resetForm.addEventListener("click", () => {
+    userForm.reset();
+})
+
 //40. Crea una funzione che, al submit di un form con id "registerForm", legge il valore di un input con id "username" e lo stampa in un elemento con id "result".
-//
+const registerForm = document.getElementById("registerForm")
+const username = document.getElementById("username")
+const result = document.getElementById("result")
+
+
 //41. Aggiungi un event listener a tutti i pulsanti con classe "action-button" che mostra un alert con il testo del pulsante cliccato.
+
+const btns = document.querySelectorAll(".action-button")
+btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        alert(btn.textContent)
+    })
+    console.log(btn)
+})
+
+//btns.addEventListener("alert", () => { })
+
 //42. Crea una funzione che, quando si clicca su un elemento con classe "remove", rimuove il suo elemento padre dal DOM.
+
+
 //43. Al passaggio del mouse su un’immagine con id "image", mostra un messaggio in un div con id "tooltip". Nascondilo quando il mouse esce.
+const testImage=document.getElementById("testImage")
+
+const img = document.createElement("img")
+img.src = "https://picsum.photos/100"
+
+const toolTip = document.createElement("div")
+toolTip.setAttribute("id", "toolTip")
+
+testImage.append(img,toolTip)
+
+img.addEventListener("mouseenter",()=>{
+    toolTip.textContent="guarda questa immagine"
+})
+
+img.addEventListener("mouseleave", ()=>{
+    toolTip.textContent=""
+})
+
+
 //44. Crea una funzione che disabilita un bottone con id "submitBtn" se un input di testo con id "textField" è vuoto.
+
+
 //45. Crea una funzione che, al cambio di un input di tipo range con id "slider", aggiorna un <span> con id "sliderValue" con il valore corrente.
 
