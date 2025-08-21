@@ -123,21 +123,91 @@ const jobs = [
     },
 ]
 
-/*jobs.forEach(job=>{
-    const title=job.title.toLowerCase()
-    //console.log(title)
-})
 
-jobs.forEach(job=>{
-    const location=job.location.toLowerCase()
-    //console.log(location)
-})*/
+
+
 
 const inputLocation = document.getElementById("inputLocation")
 const inputTitle = document.getElementById("inputTitle")
 const searchBtn = document.querySelector(".btn")
 const ul = document.getElementById("list")
-////console.log(inputLocation)
+
+let array = []
+let count = 0
+
+function search() {
+    const searchLoc = inputLocation.value.toLowerCase()
+    const searchtitle = inputTitle.value.toLowerCase()
+
+   
+    
+    let array = []
+
+    for (let i = 0; i < jobs.length; i++) {
+        const allLoc = jobs[i].location.toLowerCase()
+        const allTitle = jobs[i].title.toLowerCase()
+        if (
+            (searchLoc === "" || allLoc.includes(searchLoc)) &&
+            (searchtitle === "" || allTitle.includes(searchtitle))
+        ) {
+            array.push(jobs[i]);
+        }
+
+        //console.log(jobs[i].location)
+        // console.log(jobs[i].title)
+    }
+   
+    ul.innerHTML = ""
+
+    array.forEach(job => {
+        const li = document.createElement("li")
+        li.textContent = job.title + job.location
+        ul.appendChild(li)
+    })
+}
+
+searchBtn.addEventListener("click", search)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///console.log(inputLocation)
 ////console.log(searchBtn)
 
 
@@ -184,11 +254,11 @@ function inputSearchLocation() {
         if (locations.includes(searchLocation)) {
             arrayLocation.push(jobs[i])
             countLocation++;
-   console.log("array" + jobs[i].location)
+            console.log("array" + jobs[i].location)
             //console.log(locations)
         }
     }
- 
+
     //console.log("count" + countLocation)
     return arrayLocation
 
@@ -213,7 +283,7 @@ function showResult() {
     console.log("Bottone non trovato!");
 }*/
 
-searchBtn.addEventListener("click", () => {
+/*searchBtn.addEventListener("click", () => {
     const titleValue = inputTitle.value
     const locationValue = inputLocation.value
 
@@ -225,5 +295,5 @@ searchBtn.addEventListener("click", () => {
     } else {
         showResult()
     }
-console.log(arrayResult)
-})
+    console.log(arrayResult)
+})*/
