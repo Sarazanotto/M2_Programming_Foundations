@@ -27,8 +27,6 @@ body {
     font-size: 1.2rem;
 }
 
-
-
 .search-container button {
     padding: 1rem 1.5rem;
     cursor: pointer;
@@ -40,7 +38,9 @@ body {
     font-weight: bold;
 }
 
-.cars-container{
+/*============CARD===========*/
+
+.container-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -48,36 +48,63 @@ body {
     justify-content: center;
 }
 
-.card{
+.cardContainer {
     width: 350px;
-    background-color: #ece7e7;
+    background-color: #eae3e3;
     border-radius: 5px;
-    
+    position: relative;
+
 }
 
-img{
+img {
     width: 100%;
     height: 200px;
-   border-radius: 5px 5px 0 0;
-   object-fit: cover;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+
 }
 
-.card-content{
-    padding: 15px 10px;
+.car-description {
+    padding: 20px 20px;
+
 }
 
-.description:first-child{
+.car-description p {
+    padding-bottom: 5px;
+    font-weight: 400;
+}
+
+.car-description p:first-child {
     font-weight: bold;
-    text-decoration-line:underline;
+    font-size: 20px;
+    text-decoration-line: underline;
 }
 
-.card:hover{
+.cardContainer:hover {
     background-color: #ff6200;
     color: #ece7e7;
     transform: scale(1.1);
-cursor: pointer;
+    cursor: pointer;
 }
 
-.description{
-    margin-bottom: 3px;
+
+
+.cardContainer::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-50%) translateY(-50%);
+    height: 30px;
+    width: 30px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+.available::after {
+    background-color: green;
+}
+
+.not-available::after {
+    background-color: red;
 }

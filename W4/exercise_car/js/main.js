@@ -193,7 +193,105 @@ const cars = [
 
 // crea una card per ogni elemento dell'array e mostra le auto nel div "<div class="cars-container"></div>"
 // implementa una ricerca per cercare l'auto tramite nome
-const carsContainer = document.querySelector(".cars-container")
+
+
+function createContainerCards() {
+    const main = document.createElement("main")
+    main.classList.add("container-cards")
+    document.body.appendChild(main)
+}
+createContainerCards()
+
+function createCards(car) {
+    const cardContainer = document.createElement("div")
+    cardContainer.classList.add("cardContainer")
+
+    const imageCar = document.createElement("img")
+    imageCar.src = car.img
+
+    const nameCar = document.createElement("p")
+    nameCar.innerText = car.name
+
+    const modelCar = document.createElement("p")
+    modelCar.innerText = `Model:  ${car.model}`
+
+    const yaerCar = document.createElement("p")
+    yaerCar.innerText = `Year:  ${car.year}`
+
+    const colorCar = document.createElement("p")
+    colorCar.innerText = `Color:  ${car.color}`
+
+    const optionCar = document.createElement("p")
+    optionCar.innerText = `Optional:  ${car.options}`
+
+    const priceCar = document.createElement("p")
+    priceCar.innerText = `€ ${car.price}`
+
+    /*const availableCar = document.createElement("p")
+    availableCar.innerText = `Disponibilità  ${car.isAvailable.toString()}`*/
+
+    const cardDescription = document.createElement("div")
+    cardDescription.classList.add("car-description")
+isAvailableOrNot(cardContainer, car.isAvailable)
+    cardDescription.append(imageCar, nameCar, modelCar, yaerCar, colorCar, optionCar, /*availableCar,*/ priceCar)
+
+    cardContainer.append(imageCar, cardDescription)
+
+    const main = document.querySelector("main")
+    main.appendChild(cardContainer)
+}
+
+cars.forEach(car => {
+    createCards(car)
+})
+
+function isAvailableOrNot(elemento, Disponibilità){
+    elemento.classList.add("car-description")
+   if(Disponibilità){
+elemento.classList.add("available")
+   }else{
+    elemento.classList.add("not-available")
+   }
+}
+
+
+
+const searchContainer = document.querySelector(".search-container")
+const searchInput = document.getElementById("search-input")
+const btn = document.querySelector("button")
+let search = []
+
+
+function searchForName() {
+    const inputName = searchInput.value.toLowerCase()
+
+    const main = document.querySelector("main")
+    search = []
+    main.innerHTML = ""
+
+    for (let i = 0; i < cars.length; i++) {
+        const carValue = cars[i].name.toLowerCase()
+
+        if (carValue.startsWith(inputName)) {
+            search.push(cars[i])
+        }
+    }
+
+    if (search.length > 0) {
+        for (let i = 0; i < search.length; i++) {
+            createCards(search[i]);
+        }
+    } else {
+        const noResult = document.createElement("h2");
+        noResult.innerText = "Nessun risultato per la ricerca";
+        main.appendChild(noResult);
+    }
+}
+btn.addEventListener("click", searchForName)
+
+
+
+/*const carsContainer = document.querySelector(".cars-container")
 const searchContainer = document.querySelector(".search-container")
 const btn = document.querySelector("button")
 const search = []
@@ -259,4 +357,4 @@ function searchForName() {
 
 btn.addEventListener("click", ()=>{
     searchForName()
-})
+})*/
